@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMP</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        BUSCA TU POKEMON
+        <div class="container-cerrar">
+            <button id="logout" name="logout" class="btnClaro" hidden>Cerrar sesión</button>
+        </div>
+    </header>
+    <div class="container-log" id="container-log">
+        <div class="container-input">
+            <input type="email" placeholder="Correo" id="email" name="email">
+            <input type="password" placeholder="Contraseña" id="password" name="password">
+        </div>
+        <div>
+            <button id="crear" name="crear">Crear</button>
+            <button id="login" name="login">Iniciar sesión</button>
+            <button id="google" name="google" class="btnGoogle">Google</button>
+            <button id="fb" name="fb" class="btnFb">Facebook</button>
+            <button id="git" name="git">GitHub</button></div>
+        <div class="mensajes" id="mensajes"></div>
+        
+    </div>
+    <div class="container-buscador" id="container-buscador" hidden>
+        <div id="buscaNombre">
+            <label>Buscar por nombre</label>
+            <input type="text" name="nombrepoke" id="nombrepoke" placeholder="Nombre">
+        </div>
+        <div id="buscaID">
+            <label>Buscar por ID</label>
+            <input type="number" name="idpoke" id="idpoke" id="ID" placeholder="ID">
+            
+        </div>  
+        <button id="btnBuscar" class="btnBuscar">Buscar</button>
+    </div>
+    <div id="resultados" class="resultados">
+        <div id="resultID"></div>
+        <div id="resultPeso"></div>
+        <div id="resultAltura"></div>
+        <div id="resultStats"></div>
+        <div id="resultTipo"></div>
+        <div id="resultImg">
+            <img id="resultImgNormal"></img>
+            <img id="resultImgShiny"></img>
+        </div>
+    </div>
+</body>
+<script type="module" src="/js/index.js"></script>
+</html>
