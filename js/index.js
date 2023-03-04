@@ -10,6 +10,7 @@
       signOut,
       GoogleAuthProvider,
       signInWithPopup,
+      FacebookAuthProvider,
       GithubAuthProvider 
     } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
@@ -104,7 +105,7 @@ signInWithPopup(auth, providerGoogle)
 })
 elementos.btnGitHub.addEventListener("click", ()=>{
 
-  signInWithPopup(auth, provider)
+  signInWithPopup(auth, providerGitHub)
   .then((result) => {
     // This gives you a GitHub Access Token. You can use it to access the GitHub API.
     const credential = GithubAuthProvider.credentialFromResult(result);
@@ -125,6 +126,33 @@ elementos.btnGitHub.addEventListener("click", ()=>{
     // ...
   });
   })
+
+  elementos.btnFb.addEventListener("click", ()=>{
+
+    const providerFb = new FacebookAuthProvider();
+    signInWithPopup(auth, providerFb)
+  .then((result) => {
+    // The signed-in user info.
+    const user = result.user;
+
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    const credential = FacebookAuthProvider.credentialFromResult(result);
+    const accessToken = credential.accessToken;
+
+    // ...
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = FacebookAuthProvider.credentialFromError(error);
+
+    // ...
+  });
+    })
 
 elementos.btnBuscar.addEventListener("click", ()=>{
   //query=elementos.textNombre
