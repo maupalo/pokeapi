@@ -9,11 +9,14 @@ const elementos = {
     btnIniciar: document.getElementById("login"),
     btnCerrar: document.getElementById("logout"),
     btnGoogle: document.getElementById("google"),
+    btnFb: document.getElementById("fb"),
+    btnGitHub: document.getElementById("git"),
     btnBuscar: document.getElementById("btnBuscar"),
     //cajas de texto
     textNombre: document.getElementById("nombrepoke"),
     textID: document.getElementById("idpoke"),
     //Resultados
+    resultados: document.getElementById("resultados"),
     resultID: document.getElementById("resultID"),
     resultPeso: document.getElementById("resultPeso"),
     resultAltura: document.getElementById("resultAltura"),

@@ -9,7 +9,8 @@
       onAuthStateChanged,
       signOut,
       GoogleAuthProvider,
-      signInWithPopup
+      signInWithPopup,
+      GithubAuthProvider 
     } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
   import {elementos} from "./html.js"
@@ -36,6 +37,7 @@
 const auth = getAuth(app);
 
 const providerGoogle = new GoogleAuthProvider();
+const providerGitHub = new GithubAuthProvider();
 
 elementos.btnCrear.addEventListener("click", ()=>{
   createUserWithEmailAndPassword(auth, elementos.email.value, elementos.password.value)
@@ -100,6 +102,29 @@ signInWithPopup(auth, providerGoogle)
     alert(errorMessage)
   });
 })
+elementos.btnGitHub.addEventListener("click", ()=>{
+
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+    const credential = GithubAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GithubAuthProvider.credentialFromError(error);
+    // ...
+  });
+  })
 
 elementos.btnBuscar.addEventListener("click", ()=>{
   //query=elementos.textNombre
@@ -134,6 +159,7 @@ onAuthStateChanged(auth, (user) => {
     elementos.mensajes.innerHTML="Bienvenido";
     elementos.btnCerrar.removeAttribute("hidden");
     elementos.buscador.removeAttribute("hidden");
+    elementos.resultados.removeAttribute("hidden");
     elementos.containerLog.setAttribute("hidden", "hidden");
     // ...
   } else {
@@ -143,6 +169,7 @@ onAuthStateChanged(auth, (user) => {
     elementos.btnCerrar.setAttribute("hidden", "hidden");
     elementos.buscador.setAttribute("hidden", "hidden");
     elementos.containerLog.removeAttribute("hidden");
+    elementos.resultados.setAttribute("hidden", "hidden");
     console.log(user);
   }
 });
