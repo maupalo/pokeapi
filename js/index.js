@@ -15,6 +15,7 @@
     } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
   import {elementos} from "./html.js"
+  
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -119,6 +120,7 @@ elementos.btnGitHub.addEventListener("click", ()=>{
     // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
+    alert(errorMessage)
     // The email of the user's account used.
     const email = error.customData.email;
     // The AuthCredential type that was used.
@@ -165,11 +167,24 @@ elementos.btnBuscar.addEventListener("click", ()=>{
   .then((response) => response.json())
   .then((data) => {
     console.log(data)
-    resultID.innerHTML=data.id
-    resultPeso.innerHTML=data.weight
-    resultAltura.innerHTML=data.height
-    resultStats="PENDIENTE"
-    resultTipo.innerHTML="PENDIENTE"
+    resultID.innerHTML=`<ul><li><b>ID:</b> ${data.id}</li></ul>`
+    resultPeso.innerHTML=`<ul><li><b>WEIGHT:</b> ${data.weight}</li></ul>`
+    resultAltura.innerHTML=`<ul><li><b>HEIGHT:</b> ${data.height}</li></ul>`
+    var estadisticas="<ul><li><b>STATS</b></li><ul>";
+    data.stats.forEach((elemento)=>{
+      console.log(elemento.stat.base_stat)
+      estadisticas = estadisticas.concat(`<li>${elemento.stat.name.toUpperCase()}: ${elemento.base_stat}</li>\n
+      <ul><li>EFFORT: ${elemento.effort}</li></ul>`)
+      console.log(estadisticas)
+    })
+    estadisticas.concat("</ul>")
+    resultStats.innerHTML= `${estadisticas}`
+    var tipo="<ul>";
+    data.types.forEach((elemento)=>{
+      tipo = tipo.concat(`<li><b>TYPE</b>: ${elemento.type.name.toUpperCase()}</li>\n`)
+    })
+    tipo.concat("</ul></ul>")
+    resultTipo.innerHTML=tipo
     resultImgNormal.src=data.sprites.front_default
     resultImgShiny.src=data.sprites.front_shiny
     

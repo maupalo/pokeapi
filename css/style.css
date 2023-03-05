@@ -12,6 +12,7 @@ button{
     border: 0px;
     margin-top: 0.5em;
     margin-right: 1em;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .btnClaro{
     background-color: white;
@@ -37,12 +38,21 @@ header{
     border-color: black;
     border-radius: 15px;
     margin: 2em;
+    text-align: center;
+}
+input{
+    border-radius: 15px;
+    padding: 5px;
 }
 .container-buscador{
     margin: 1vh;
+    text-align: center;
 }
 .container-buscador > div{
     margin: 3vh
+}
+.btnGitHub{
+    background-color: gray;
 }
 .mensajes{
     text-align: center;
@@ -66,3 +76,16 @@ header{
 .buscador{
     text-align: center;
 }
+.container{
+    display: flex;
+    justify-content: center;
+    
+    height: 100vh;
+}
+.resultados{
+    background-color: #ccc;
+  padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+table{text-align: center;}
