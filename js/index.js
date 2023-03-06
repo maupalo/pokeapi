@@ -41,6 +41,10 @@ const auth = getAuth(app);
 const providerGoogle = new GoogleAuthProvider();
 const providerGitHub = new GithubAuthProvider();
 
+document.addEventListener("load", ()=>{
+  elementos.resultados.setAttribute("hidden", "hidden");
+})
+
 elementos.btnCrear.addEventListener("click", ()=>{
   createUserWithEmailAndPassword(auth, elementos.email.value, elementos.password.value)
   .then((userCredential) => {
@@ -159,18 +163,22 @@ elementos.btnGitHub.addEventListener("click", ()=>{
 elementos.btnBuscar.addEventListener("click", ()=>{
   //query=elementos.textNombre
   if (elementos.textID.value!=""){
-
+    var query=elementos.textID.value;
   }
-  var query=elementos.textNombre.value.toLowerCase();
+  else{
+    var query=elementos.textNombre.value.toLowerCase();
+  }
+  
   console.log(query)
   fetch(`https://pokeapi.co/api/v2/pokemon/${query}/`)
   .then((response) => response.json())
   .then((data) => {
     console.log(data)
-    resultID.innerHTML=`<ul><li><b>ID:</b> ${data.id}</li></ul>`
-    resultPeso.innerHTML=`<ul><li><b>WEIGHT:</b> ${data.weight}</li></ul>`
-    resultAltura.innerHTML=`<ul><li><b>HEIGHT:</b> ${data.height}</li></ul>`
-    var estadisticas="<ul><li><b>STATS</b></li><ul>";
+    resultName.innerHTML=`<h2>${data.name.toUpperCase()}</h2>`
+    resultID.innerHTML=`<li><b>ID:</b> ${data.id}</li>`
+    resultPeso.innerHTML=`<li><b>WEIGHT:</b> ${data.weight}</li>`
+    resultAltura.innerHTML=`<li><b>HEIGHT:</b> ${data.height}</li>`
+    var estadisticas="<li><b>STATS:</b></li><ul>";
     data.stats.forEach((elemento)=>{
       console.log(elemento.stat.base_stat)
       estadisticas = estadisticas.concat(`<li>${elemento.stat.name.toUpperCase()}: ${elemento.base_stat}</li>\n
@@ -179,15 +187,20 @@ elementos.btnBuscar.addEventListener("click", ()=>{
     })
     estadisticas.concat("</ul>")
     resultStats.innerHTML= `${estadisticas}`
-    var tipo="<ul>";
+    var tipo="";
     data.types.forEach((elemento)=>{
       tipo = tipo.concat(`<li><b>TYPE</b>: ${elemento.type.name.toUpperCase()}</li>\n`)
     })
-    tipo.concat("</ul></ul>")
+    tipo.concat("</ul>")
     resultTipo.innerHTML=tipo
     resultImgNormal.src=data.sprites.front_default
     resultImgShiny.src=data.sprites.front_shiny
-    
+    elementos.resultados.removeAttribute("hidden");
+    elementos.textID.value=""
+    elementos.textNombre.value=""
+  })
+  .catch(()=>{
+    alert("No se encontró ese pokemon")
   });
   
 
@@ -199,20 +212,20 @@ onAuthStateChanged(auth, (user) => {
     // https://firebase.google.com/docs/reference/js/firebase.User
     const uid = user.uid;
     console.log(user);
-    elementos.mensajes.innerHTML="Bienvenido";
+
     elementos.btnCerrar.removeAttribute("hidden");
     elementos.buscador.removeAttribute("hidden");
-    elementos.resultados.removeAttribute("hidden");
+
     elementos.containerLog.setAttribute("hidden", "hidden");
     // ...
   } else {
     // User is signed out
     // ...
-    elementos.mensajes.innerHTML="Sáquese, no ha iniciado sesión";
+    elementos.resultados.setAttribute("hidden", "hidden");
     elementos.btnCerrar.setAttribute("hidden", "hidden");
     elementos.buscador.setAttribute("hidden", "hidden");
     elementos.containerLog.removeAttribute("hidden");
-    elementos.resultados.setAttribute("hidden", "hidden");
+    
     console.log(user);
   }
 });

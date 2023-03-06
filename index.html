@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        BUSCA TU POKEMON
+        <h1>BUSCA TU POKEMON</h1>
         <div class="container-cerrar">
             <button id="logout" name="logout" class="btnClaro" hidden>Cerrar sesión</button>
         </div>
@@ -20,52 +20,49 @@
                 <input type="email" placeholder="Correo" id="email" name="email">
                 <input type="password" placeholder="Contraseña" id="password" name="password">
             </div>
-            <div>
+            <div class="button-container">
                 <button id="crear" name="crear">Crear</button>
                 <button id="login" name="login">Iniciar sesión</button>
+            </div>
+            <div class="button-container">
                 <button id="google" name="google" class="btnGoogle">Google</button>
                 <button id="fb" name="fb" class="btnFb">Facebook</button>
-                <button id="git" name="btn" class="btnGitHub">GitHub</button></div>
-            <div class="mensajes" id="mensajes"></div>
+                <button id="git" name="btn" class="btnGitHub">GitHub</button>
+            </div>
+            <!-- <div class="mensajes" id="mensajes"></div> -->
             
         </div>
-        <div class="container-buscador" id="container-buscador" hidden>
-            <div id="buscaNombre">
-                <label>Buscar por nombre</label>
-                <input type="text" name="nombrepoke" id="nombrepoke" placeholder="Nombre">
+        <div class="container-poke">
+            <div class="container-buscador" id="container-buscador" hidden>
+                <div id="buscaNombre">
+                    <label>Buscar por nombre</label>
+                    <input type="text" name="nombrepoke" id="nombrepoke" placeholder="Nombre">
+                </div>
+                <div id="buscaID">
+                    <label>Buscar por ID</label>
+                    <input type="number" name="idpoke" id="idpoke" id="ID" placeholder="ID">
+                    
+                </div>  
+                <button id="btnBuscar" class="btnBuscar">Buscar</button>
             </div>
-            <div id="buscaID">
-                <label>Buscar por ID</label>
-                <input type="number" name="idpoke" id="idpoke" id="ID" placeholder="ID">
+            <div id="resultados" class="resultados" hidden>
+                    <div id="resultName"></div>
+                    <div id="resultID"></div>
+                    <div id="resultPeso"></div>
+                    <div id="resultAltura"></div>
+                    <div id="resultStats"></div>
+                    <div id="resultTipo"></div>
+                    <div id="resultImg"></div>
+                    <div>
+                        <table>
+                        <tr>
+                            <td id="td1"><img id="resultImgNormal"></img></td>
+                            <td id="td2"><img id="resultImgShiny"></img></td>
+                        </tr>
+                        </table>
+                    </div>
                 
-            </div>  
-            <button id="btnBuscar" class="btnBuscar">Buscar</button>
-        </div>
-        <div id="resultados" class="resultados" hidden>
-            <table>
-                <tr>
-                <td id="resultID"></td>
-                </tr>
-                <tr>
-                <td id="resultPeso"></td>
-                </tr>
-                <tr>
-                <td id="resultAltura"></td>
-                </tr>
-                <tr>
-                <td id="resultStats"></td>
-                </tr>
-                <tr>
-                <td id="resultTipo"></td>
-                </tr>
-                <tr>
-                <td id="resultImg"></td>
-                </tr>
-                <tr>
-                <td><img id="resultImgNormal"></img></td>
-                <td><img id="resultImgShiny"></img></td>
-                </tr>
-            </table>
+            </div>
         </div>
     </div>
 </body>

@@ -17,6 +17,7 @@ const elementos = {
     textID: document.getElementById("idpoke"),
     //Resultados
     resultados: document.getElementById("resultados"),
+    resultName: document.getElementById("resultName"),
     resultID: document.getElementById("resultID"),
     resultPeso: document.getElementById("resultPeso"),
     resultAltura: document.getElementById("resultAltura"),
