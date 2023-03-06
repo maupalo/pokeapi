@@ -57,7 +57,7 @@ elementos.btnCrear.addEventListener("click", ()=>{
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    alert("Hubo un error "+ errorMessage)
+    alert("Hubo un error \n"+ errorMessage)
     // ..
   });
 });
