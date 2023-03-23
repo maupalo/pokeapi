@@ -2,6 +2,17 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+  import { getFirestore,
+    doc,
+    collection,
+    addDoc,
+    setDoc,
+    deleteDoc,
+    getDocs,
+    query,
+    where
+    } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+
   import {
       getAuth,
       createUserWithEmailAndPassword,
@@ -34,6 +45,9 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+  // Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
   //const analytics = getAnalytics(app);
   // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
@@ -215,8 +229,8 @@ onAuthStateChanged(auth, (user) => {
 
     elementos.btnCerrar.removeAttribute("hidden");
     elementos.buscador.removeAttribute("hidden");
-
     elementos.containerLog.setAttribute("hidden", "hidden");
+    //elementos.crud.removeAttribute("hidden");
     // ...
   } else {
     // User is signed out
@@ -224,8 +238,50 @@ onAuthStateChanged(auth, (user) => {
     elementos.resultados.setAttribute("hidden", "hidden");
     elementos.btnCerrar.setAttribute("hidden", "hidden");
     elementos.buscador.setAttribute("hidden", "hidden");
+    //elementos.crud.setAttribute("hidden", "hidden");
     elementos.containerLog.removeAttribute("hidden");
     
     console.log(user);
   }
 });
+elementos.btnGuardar.addEventListener("click", async ()=>{
+  try {
+    await setDoc(doc(collection(db, "cities"), elementos.textAbreviatura.value), {
+      city: elementos.textCiudad.value,
+      state: elementos.textEstado.value,
+      population: parseInt(elementos.textPoblacion.value)
+    });
+    console.log("Document written with ID: ");
+    alert("Document written with ID: ")
+  } catch (e) {
+    console.error("Error adding document: ", e);
+    alert("Error adding document: ", e)
+  }
+
+  })
+  elementos.btnBorrar.addEventListener("click", async ()=>{
+    try {
+      await deleteDoc(doc(db, "cities",elementos.textAbreviatura.value));
+    } catch (e) {
+
+    }
+  
+    })
+  
+  elementos.btnLeer.addEventListener("click", async ()=>{
+    try {
+      var htmlDatos=""
+      const querySnapshot = await getDocs(collection(db, "cities"));
+      querySnapshot.forEach((doc) => {
+        htmlDatos=`${htmlDatos} <li>${doc.data().city}, ${doc.data().state}. Población: ${doc.data().population}</li>`
+      }
+      );
+      elementos.datos.innerHTML= htmlDatos
+    } catch (e) {
+      console.error("Error reading document: ", e);
+      alert("Error adding document: ", e)
+    }
+  
+    })
+
+  

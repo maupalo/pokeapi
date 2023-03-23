@@ -4,6 +4,7 @@ const elementos = {
     containerLog: document.getElementById("container-log"),
     buscador: document.getElementById("container-buscador"),
     mensajes: document.getElementById("mensajes"),
+    crud: document.getElementById("containerCRUD"),
     //botones
     btnCrear: document.getElementById("crear"),
     btnIniciar: document.getElementById("login"),
@@ -12,10 +13,18 @@ const elementos = {
     btnFb: document.getElementById("fb"),
     btnGitHub: document.getElementById("git"),
     btnBuscar: document.getElementById("btnBuscar"),
+    btnGuardar: document.getElementById("guardar"),
+    btnLeer: document.getElementById("leer"),
+    btnBorrar: document.getElementById("borrar"),
     //cajas de texto
     textNombre: document.getElementById("nombrepoke"),
     textID: document.getElementById("idpoke"),
+    textAbreviatura: document.getElementById("abreviatura"),
+    textCiudad: document.getElementById("ciudad"),
+    textEstado: document.getElementById("estado"),
+    textPoblacion: document.getElementById("poblacion"),
     //Resultados
+    datos: document.getElementById("datos"),
     resultados: document.getElementById("resultados"),
     resultName: document.getElementById("resultName"),
     resultID: document.getElementById("resultID"),
