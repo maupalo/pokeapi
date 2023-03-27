@@ -10,7 +10,8 @@
     deleteDoc,
     getDocs,
     query,
-    where
+    where,
+    getDoc
     } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
   import {
@@ -246,34 +247,67 @@ onAuthStateChanged(auth, (user) => {
 });
 elementos.btnGuardar.addEventListener("click", async ()=>{
   try {
-    await setDoc(doc(collection(db, "cities"), elementos.textAbreviatura.value), {
-      city: elementos.textCiudad.value,
-      state: elementos.textEstado.value,
-      population: parseInt(elementos.textPoblacion.value)
-    });
-    console.log("Document written with ID: ");
-    alert("Document written with ID: ")
+    const docRef = doc(db, "pokemon", elementos.textAbreviatura.value);
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+  alert("Ese pokemon ya existe")
+} else {
+  // doc.data() will be undefined in this case
+  await setDoc(doc(collection(db, "pokemon"), elementos.textAbreviatura.value), {
+    nombre: elementos.textNombre.value,
+    tipo: elementos.textTipo.value,
+    image: elementos.textImage.value
+  });
+  console.log("Document written with ID: ");
+  alert("Se ha creado su pokemon personalizado")
+}
+    
   } catch (e) {
     console.error("Error adding document: ", e);
     alert("Error adding document: ", e)
   }
 
   })
+  elementos.btnActualizar.addEventListener("click", async ()=>{
+    try {
+      const docRef = doc(db, "pokemon", elementos.textAbreviatura.value);
+  const docSnap = await getDoc(docRef);
+  
+  if (!docSnap.exists()) {
+    alert("Ese pokemon no existe. Revise el ID")
+  } else {
+    // doc.data() will be undefined in this case
+    await setDoc(doc(collection(db, "pokemon"), elementos.textAbreviatura.value), {
+      nombre: elementos.textNombre.value,
+      tipo: elementos.textTipo.value,
+      image: elementos.textImage.value
+    });
+    console.log("Document written with ID: ");
+    alert("Pokemon actualizado ")
+  }
+      
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      alert("Error adding document: ", e)
+    }
+  
+    })
   elementos.btnBorrar.addEventListener("click", async ()=>{
     try {
-      await deleteDoc(doc(db, "cities",elementos.textAbreviatura.value));
+      await deleteDoc(doc(db, "pokemon",elementos.textAbreviatura.value));
     } catch (e) {
 
     }
   
     })
   
-  elementos.btnLeer.addEventListener("click", async ()=>{
+  elementos.btnVer.addEventListener("click", async ()=>{
     try {
       var htmlDatos=""
-      const querySnapshot = await getDocs(collection(db, "cities"));
+      const querySnapshot = await getDocs(collection(db, "pokemon"));
       querySnapshot.forEach((doc) => {
-        htmlDatos=`${htmlDatos} <li>${doc.data().city}, ${doc.data().state}. Población: ${doc.data().population}</li>`
+        htmlDatos=`${htmlDatos} <li><b>Nombre:</b>${doc.data().nombre}, <b>Tipo:</b> ${doc.data().tipo} <img class="img-poke" src="${doc.data().image}"></li>`
       }
       );
       elementos.datos.innerHTML= htmlDatos
@@ -283,5 +317,20 @@ elementos.btnGuardar.addEventListener("click", async ()=>{
     }
   
     })
+    elementos.btnBuscarPers.addEventListener("click", async ()=>{
+      var docRef = doc(db, "pokemon", elementos.textAbreviatura.value);
+      var docSnap = await getDoc(docRef);
+      var htmlDatos=""
+      if (docSnap.exists()) {
+          htmlDatos=`${htmlDatos} <li><b>Nombre:</b>${docSnap.data().nombre}, <b>Tipo:</b> ${docSnap.data().tipo} <img class="img-poke" src="${docSnap.data().image}"></li>`
+          elementos.datos.innerHTML= htmlDatos
+        
+        console.log("Document data:", docSnap.data());
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    
+      })
 
   
