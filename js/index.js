@@ -307,7 +307,7 @@ if (docSnap.exists()) {
       var htmlDatos=""
       const querySnapshot = await getDocs(collection(db, "pokemon"));
       querySnapshot.forEach((doc) => {
-        htmlDatos=`${htmlDatos} <li><b>Nombre:</b>${doc.data().nombre}, <b>Tipo:</b> ${doc.data().tipo} <img class="img-poke" src="${doc.data().image}"></li>`
+        htmlDatos=`${htmlDatos} <li><b>Nombre:</b> ${doc.data().nombre}, <b>Tipo:</b> ${doc.data().tipo} <img class="img-poke" src="${doc.data().image}" onclick="document.getElementById('abreviatura').value = '${doc.id}'"></li>`
       }
       );
       elementos.datos.innerHTML= htmlDatos
