@@ -97,6 +97,9 @@ input {
 .btnGitHub {
     background-color: gray;
 }
+.btnYahoo {
+    background-color:purple;
+}
 
 .mensajes {
     text-align: center;

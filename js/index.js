@@ -317,6 +317,10 @@ if (docSnap.exists()) {
     }
   
     })
+    elementos.btnYahoo.addEventListener("click", async ()=>{
+      alert("No se haga, nadie usa Yahoo")
+    
+      })
     elementos.btnBuscarPers.addEventListener("click", async ()=>{
       var docRef = doc(db, "pokemon", elementos.textAbreviatura.value);
       var docSnap = await getDoc(docRef);

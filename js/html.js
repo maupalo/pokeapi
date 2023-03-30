@@ -10,6 +10,7 @@ const elementos = {
     btnIniciar: document.getElementById("login"),
     btnCerrar: document.getElementById("logout"),
     btnGoogle: document.getElementById("google"),
+    btnYahoo: document.getElementById("yahoo"),
     btnFb: document.getElementById("fb"),
     btnGitHub: document.getElementById("git"),
     btnBuscar: document.getElementById("btnBuscar"),
