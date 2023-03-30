@@ -322,7 +322,7 @@ if (docSnap.exists()) {
       var docSnap = await getDoc(docRef);
       var htmlDatos=""
       if (docSnap.exists()) {
-          htmlDatos=`${htmlDatos} <li><b>Nombre:</b>${docSnap.data().nombre}, <b>Tipo:</b> ${docSnap.data().tipo} <img class="img-poke" src="${docSnap.data().image}"></li>`
+          htmlDatos=`${htmlDatos} <li><b>Nombre:</b>${docSnap.data().nombre}, <b>Tipo:</b> ${docSnap.data().tipo} <img class="img-poke-big" src="${docSnap.data().image}"></li>`
           elementos.datos.innerHTML= htmlDatos
         
         console.log("Document data:", docSnap.data());
@@ -332,5 +332,12 @@ if (docSnap.exists()) {
       }
     
       })
-
+      mapboxgl.accessToken = 'pk.eyJ1IjoibWF1cGFsbyIsImEiOiJjbGZzYzNhN3kwM3RpM2ZwYTl5ajlrdHNlIn0.Qzkwoc5_Mu0MLmczszqWEw';
+      const map = new mapboxgl.Map({
+      container: 'map', // container ID
+      // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+      style: 'mapbox://styles/mapbox/streets-v12', // style URL
+      center: [-103.393016, 25.6160299], // starting position [lng, lat]
+      zoom: 14 // starting zoom
+      });
   
