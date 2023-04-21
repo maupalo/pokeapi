@@ -365,154 +365,154 @@ const marker1 = new mapboxgl.Marker()
 
   
 
-map.on('load', () => {
-  map.addSource('places', {
-    'type': 'geojson',
-    'data': {
-      'type': 'FeatureCollection',
-      'features': [
-        {
-          'type': 'Feature',
-          'properties': {
-            'description':
-              '<strong>Universidad Autónoma de La Laguna</strong><p>La Universidad Autónoma de La Laguna (UAL) es una universidad privada mexicana ubicada en la ciudad de Torreón, Coahuila. Fue fundada el 4 de diciembre de 1988.</p>'
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-103.43348, 25.5768379]
-          }
-        },
-        {
-          'type': 'Feature',
-          'properties': {
-            'description':
-              '<strong>Casa del Cerro</strong><p>La Casa del cerro o Chalet Wulff es un edificio ubicado en la calzada industria sin número, al oeste del centro histórico de la ciudad de Torreón, en el estado de Coahuila, México y fue construida a principios del siglo XX en estilo ecléctico por el arquitecto Federico Wulff. Es una de las construcciones más antiguas y emblemáticas de la ciudad de Torreón y desde 1994 alberga al Museo Histórico de la Ciudad.</p>'
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-103.4703945, 25.5339065]
-          }
-        },
-        {
-          'type': 'Feature',
-          'properties': {
-            'description':
-              '<strong>Museo Arocena</strong><p>El Museo Arocena es un museo de Torreón, México, inaugurado en 2006. Cuenta con salas de arte contemporáneo, arte europeo, arte de la Nueva España e historia regional. Tiene como base una colección de más de 3000 obras de arte virreinal, europeo y mexicano que fueron adquiridas durante los últimos cien años por la familia Arocena y sus descendientes. Sobre una superficie de cinco mil metros cuadrados, el museo se estableció en el antiguo edificio del Casino de La Laguna, construido en 1910 por el arquitecto francés Louis Channel. </p>'
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-103.4646307, 25.537999]
-          }
-        },
-        {
-          'type': 'Feature',
-          'properties': {
-            'description':
-              '<strong>Cristo de las Noas</strong><p>El Cristo de las Noas es una escultura de Jesús de Nazaret ubicada en el Cerro de las Noas, en la ciudad de Torreón, Coahuila, México, al noreste de México. Es obra de la artista Vladimir Alvarado, quien quiso inmortalizar el gesto de un Cristo protector.</p>'
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-103.4560951, 25.525331]
-          }
-        },
-        {
-          'type': 'Feature',
-          'properties': {
-            'description':
-              "<strong>Puente Plateado</strong><p>El Puente Plateado entre las ciudades mexicanas Torreón y Gómez Palacio es uno de los símbolos de la Comarca Lagunera. Fue inaugurado el 20 de diciembre de 1931, por los gobernadores de Coahuila y Durango, Nazario Ortiz Garza y Pastor Rouaix respectivamente.</p>"
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-103.4725349, 25.5461068]
-          }
-        },
-        {
-          'type': 'Feature',
-          'properties': {
-            'description':
-              '<strong>Capital Pride Parade</strong><p>The annual Capital Pride Parade makes its way through Dupont this Saturday. 4:30 p.m. Free.</p>'
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-77.043444, 38.909664]
-          }
-        },
-        {
-          'type': 'Feature',
-          'properties': {
-            'description':
-              '<strong>Muhsinah</strong><p>Jazz-influenced hip hop artist Muhsinah plays the Black Cat (1811 14th Street NW) tonight with Exit Clov and Gods’illa. 9:00 p.m. $12.</p>'
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-77.031706, 38.914581]
-          }
-        },
-        {
-          'type': 'Feature',
-          'properties': {
-            'description':
-              "<strong>A Little Night Music</strong><p>The Arlington Players' production of Stephen Sondheim's <em>A Little Night Music</em> comes to the Kogod Cradle at The Mead Center for American Theater (1101 6th Street SW) this weekend and next. 8:00 p.m.</p>"
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-77.020945, 38.878241]
-          }
-        },
-        {
-          'type': 'Feature',
-          'properties': {
-            'description':
-              '<strong>Truckeroo</strong><p>Truckeroo brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>'
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-77.007481, 38.876516]
-          }
-        }
-      ]
-    }
-  });
-  // Add a layer showing the places.
-  map.addLayer({
-    'id': 'places',
-    'type': 'circle',
-    'source': 'places',
-    'paint': {
-      'circle-color': '#4264fb',
-      'circle-radius': 6,
-      'circle-stroke-width': 2,
-      'circle-stroke-color': '#ffffff'
-    }
-  });
+// map.on('load', () => {
+//   map.addSource('places', {
+//     'type': 'geojson',
+//     'data': {
+//       'type': 'FeatureCollection',
+//       'features': [
+//         {
+//           'type': 'Feature',
+//           'properties': {
+//             'description':
+//               '<strong>Universidad Autónoma de La Laguna</strong><p>La Universidad Autónoma de La Laguna (UAL) es una universidad privada mexicana ubicada en la ciudad de Torreón, Coahuila. Fue fundada el 4 de diciembre de 1988.</p>'
+//           },
+//           'geometry': {
+//             'type': 'Point',
+//             'coordinates': [-103.43348, 25.5768379]
+//           }
+//         },
+//         {
+//           'type': 'Feature',
+//           'properties': {
+//             'description':
+//               '<strong>Casa del Cerro</strong><p>La Casa del cerro o Chalet Wulff es un edificio ubicado en la calzada industria sin número, al oeste del centro histórico de la ciudad de Torreón, en el estado de Coahuila, México y fue construida a principios del siglo XX en estilo ecléctico por el arquitecto Federico Wulff. Es una de las construcciones más antiguas y emblemáticas de la ciudad de Torreón y desde 1994 alberga al Museo Histórico de la Ciudad.</p>'
+//           },
+//           'geometry': {
+//             'type': 'Point',
+//             'coordinates': [-103.4703945, 25.5339065]
+//           }
+//         },
+//         {
+//           'type': 'Feature',
+//           'properties': {
+//             'description':
+//               '<strong>Museo Arocena</strong><p>El Museo Arocena es un museo de Torreón, México, inaugurado en 2006. Cuenta con salas de arte contemporáneo, arte europeo, arte de la Nueva España e historia regional. Tiene como base una colección de más de 3000 obras de arte virreinal, europeo y mexicano que fueron adquiridas durante los últimos cien años por la familia Arocena y sus descendientes. Sobre una superficie de cinco mil metros cuadrados, el museo se estableció en el antiguo edificio del Casino de La Laguna, construido en 1910 por el arquitecto francés Louis Channel. </p>'
+//           },
+//           'geometry': {
+//             'type': 'Point',
+//             'coordinates': [-103.4646307, 25.537999]
+//           }
+//         },
+//         {
+//           'type': 'Feature',
+//           'properties': {
+//             'description':
+//               '<strong>Cristo de las Noas</strong><p>El Cristo de las Noas es una escultura de Jesús de Nazaret ubicada en el Cerro de las Noas, en la ciudad de Torreón, Coahuila, México, al noreste de México. Es obra de la artista Vladimir Alvarado, quien quiso inmortalizar el gesto de un Cristo protector.</p>'
+//           },
+//           'geometry': {
+//             'type': 'Point',
+//             'coordinates': [-103.4560951, 25.525331]
+//           }
+//         },
+//         {
+//           'type': 'Feature',
+//           'properties': {
+//             'description':
+//               "<strong>Puente Plateado</strong><p>El Puente Plateado entre las ciudades mexicanas Torreón y Gómez Palacio es uno de los símbolos de la Comarca Lagunera. Fue inaugurado el 20 de diciembre de 1931, por los gobernadores de Coahuila y Durango, Nazario Ortiz Garza y Pastor Rouaix respectivamente.</p>"
+//           },
+//           'geometry': {
+//             'type': 'Point',
+//             'coordinates': [-103.4725349, 25.5461068]
+//           }
+//         },
+//         {
+//           'type': 'Feature',
+//           'properties': {
+//             'description':
+//               '<strong>Capital Pride Parade</strong><p>The annual Capital Pride Parade makes its way through Dupont this Saturday. 4:30 p.m. Free.</p>'
+//           },
+//           'geometry': {
+//             'type': 'Point',
+//             'coordinates': [-77.043444, 38.909664]
+//           }
+//         },
+//         {
+//           'type': 'Feature',
+//           'properties': {
+//             'description':
+//               '<strong>Muhsinah</strong><p>Jazz-influenced hip hop artist Muhsinah plays the Black Cat (1811 14th Street NW) tonight with Exit Clov and Gods’illa. 9:00 p.m. $12.</p>'
+//           },
+//           'geometry': {
+//             'type': 'Point',
+//             'coordinates': [-77.031706, 38.914581]
+//           }
+//         },
+//         {
+//           'type': 'Feature',
+//           'properties': {
+//             'description':
+//               "<strong>A Little Night Music</strong><p>The Arlington Players' production of Stephen Sondheim's <em>A Little Night Music</em> comes to the Kogod Cradle at The Mead Center for American Theater (1101 6th Street SW) this weekend and next. 8:00 p.m.</p>"
+//           },
+//           'geometry': {
+//             'type': 'Point',
+//             'coordinates': [-77.020945, 38.878241]
+//           }
+//         },
+//         {
+//           'type': 'Feature',
+//           'properties': {
+//             'description':
+//               '<strong>Truckeroo</strong><p>Truckeroo brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>'
+//           },
+//           'geometry': {
+//             'type': 'Point',
+//             'coordinates': [-77.007481, 38.876516]
+//           }
+//         }
+//       ]
+//     }
+//   });
+//   // Add a layer showing the places.
+//   map.addLayer({
+//     'id': 'places',
+//     'type': 'circle',
+//     'source': 'places',
+//     'paint': {
+//       'circle-color': '#4264fb',
+//       'circle-radius': 6,
+//       'circle-stroke-width': 2,
+//       'circle-stroke-color': '#ffffff'
+//     }
+//   });
 
-  // Create a popup, but don't add it to the map yet.
-  const popup = new mapboxgl.Popup({
-    closeButton: false,
-    closeOnClick: false
-  });
-  map.on('mouseenter', 'places', (e) => {
-    // Change the cursor style as a UI indicator.
-    map.getCanvas().style.cursor = 'pointer';
+//   // Create a popup, but don't add it to the map yet.
+//   const popup = new mapboxgl.Popup({
+//     closeButton: false,
+//     closeOnClick: false
+//   });
+//   map.on('mouseenter', 'places', (e) => {
+//     // Change the cursor style as a UI indicator.
+//     map.getCanvas().style.cursor = 'pointer';
 
-    // Copy coordinates array.
-    const coordinates = e.features[0].geometry.coordinates.slice();
-    const description = e.features[0].properties.description;
+//     // Copy coordinates array.
+//     const coordinates = e.features[0].geometry.coordinates.slice();
+//     const description = e.features[0].properties.description;
 
-    // Ensure that if the map is zoomed out such that multiple
-    // copies of the feature are visible, the popup appears
-    // over the copy being pointed to.
-    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    }
+//     // Ensure that if the map is zoomed out such that multiple
+//     // copies of the feature are visible, the popup appears
+//     // over the copy being pointed to.
+//     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+//       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+//     }
 
-    // Populate the popup and set its coordinates
-    // based on the feature found.
-    popup.setLngLat(coordinates).setHTML(description).addTo(map);
-  });
+//     // Populate the popup and set its coordinates
+//     // based on the feature found.
+//     popup.setLngLat(coordinates).setHTML(description).addTo(map);
+//   });
 
-  map.on('mouseleave', 'places', () => {
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-  });
-});
+//   map.on('mouseleave', 'places', () => {
+//     map.getCanvas().style.cursor = '';
+//     popup.remove();
+//   });
+// });
