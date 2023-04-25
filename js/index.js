@@ -125,6 +125,10 @@ elementos.btnGoogle.addEventListener("click", () => {
       alert(errorMessage)
     });
 })
+elementos.btnYahoo.addEventListener("click", () => {
+
+  alert("No sea mentiroso, nadie usa Yahoo")
+})
 elementos.btnGitHub.addEventListener("click", () => {
 
   signInWithPopup(auth, providerGitHub)
